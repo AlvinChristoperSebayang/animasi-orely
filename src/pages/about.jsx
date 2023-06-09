@@ -29,12 +29,42 @@ const about = () => {
     gsap.fromTo(el,{rotate:5},{ rotate:0,duration:0.8 , scrollTrigger:{
       trigger: el,
       start: 'center bottom',
-      end: 'bottom bottom',
+      end: 'center bottom',
       toggleActions: 'play none none reverse',
     }})
   }, []);
 
 
+  const img2Ref = useRef(null);
+  useEffect(() => {
+    const el = img2Ref.current;
+    gsap.fromTo(el,{y:'20%'},{ y:-50,duration:1 , scrollTrigger:{
+      trigger: el,
+      start: 'center bottom',
+      end: 'center bottom',
+      toggleActions: 'play none none reverse',
+    }})
+  }, []);
+
+
+  const paragraphRef = useRef(null);
+  useEffect(() => {
+    const el = paragraphRef.current;
+    gsap.fromTo(el,{
+      opacity:0,
+      y:'10%'},  
+      {
+        opacity:1,
+        y:0, 
+        duration: 1,
+        scrollTrigger: {
+          trigger: el,
+          start: 'center bottom',
+          end: 'bottom bottom',
+          toggleActions: 'play none none reverse',
+        },
+      })
+  }, []);
 
   // animasi gsap brandlink
   const elementRefs = useRef([]);
@@ -68,21 +98,42 @@ const about = () => {
   
 
 
-  // animasi pengenalan diri
-  const paragraphRef = useRef(null);
+  // animasi paragraph1&2
+ 
+  const paraRefs = useRef([]);
+
   useEffect(() => {
-    const el2 = paragraphRef.current;
-    gsap.fromTo(el2,{opacity:0,y:'10%' },{ opacity:1,y:0, duration: 1, scrollTrigger:{
-      trigger: el2,
-      start: 'center bottom',
-      end: 'bottom bottom',
-      toggleActions: 'play none none reverse',
-    
-    }})
-  }, []);
+    const elements = paraRefs.current;
 
+    elements.forEach((element, index) => {
+      gsap.fromTo(
+        element,
+        {
+          opacity: 0,
+          
+       
+          y:'50%'
+        },
+        {
+          opacity: 1,
+        
+         y:0,
+         duration:1,
+          scrollTrigger: {
+            trigger: element,
+            start: 'center bottom',
+            end: 'bottom bottom',
+            toggleActions: 'play none none reverse',
+          },
+        }
+        );
+      });
+    }, []);
+  
+ 
+    // animasi fadeingambar
 
-
+  
   // animasi brandlink
   useEffect(() => {
     const elements = document.querySelectorAll('.animate-scaleupright');
@@ -182,7 +233,7 @@ const about = () => {
        
          <h1 className='text-2xl font-bold animate-scalecenter'>Riko Sapto Dimo </h1>
          <p className='pt-2 animate-scalecenter'>Founder & CEO</p>
-         <p className='pt-5 text-xs animate-fadeintop'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni maiores necessitatibus et cum quam consectetur, in rerum repudiandae qui, voluptatum est quas facere ex quaerat soluta fugiat aspernatur quo iste explicabo officiis vero maxime debitis eius doloribus? Dolor, voluptatem aperiam.</p>
+         <p className='pt-5 text-xs animate-fadeintop' >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni maiores necessitatibus et cum quam consectetur, in rerum repudiandae qui, voluptatum est quas facere ex quaerat soluta fugiat aspernatur quo iste explicabo officiis vero maxime debitis eius doloribus? Dolor, voluptatem aperiam.</p>
 
          <div className='flex gap-5 bottom-5 left-5 pt-10 '>
         <div className='p-2 rounded-full bg-pink-500 duration-300 w-10 cursor-pointer  animate-scaleupright' data-delay="100" >
@@ -202,7 +253,7 @@ const about = () => {
       
      </div>
 </div>
-<div className='w-full flex justify-center mt-40 pb-80 relative'>
+<div className='w-full flex justify-center mt-40 pb-20 relative'>
      <div className=' bg-blue-300 p-10 w-[45%] flex gap-20 justify-center rounded-xl' data-aos-duration='1000' >
       
        
@@ -231,18 +282,17 @@ const about = () => {
        <div className='w-56' ref={imgRef}>
        <img src="/riko.png" alt="" />
        </div>
-      
-      
      </div>
 </div>
       <div className='flex justify-around w-full'>
         <div className='w-2/5'>
-          <h1 className='text-3xl'>Orely's Core</h1>
-          <p className='mt-10'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus enim necessitatibus id nisi sit nihil odit veniam error incidunt quidem veritatis corrupti, voluptatum reprehenderit, eius, maiores officiis debitis dolore.</p>
-          <p className='mt-10'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia veritatis minus neque dolore suscipit vitae beatae veniam, voluptatem doloribus, iste error quibusdam iusto sit, porro provident. Ab ratione rem id!</p>
+          <h1 className='text-3xl font-bold'>Orely's Core</h1>
+          <p className='mt-10' ref={(el) => (paraRefs.current[1] = el)} data-delay="200">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus enim necessitatibus id nisi sit nihil odit veniam error incidunt quidem veritatis corrupti, voluptatum reprehenderit, eius, maiores officiis debitis dolore.</p>
+          <p className='mt-10'ref={(el) => (paraRefs.current[2] = el)} data-delay="1000">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia veritatis minus neque dolore suscipit vitae beatae veniam, voluptatem doloribus, iste error quibusdam iusto sit, porro provident. Ab ratione rem id!</p>
         </div>
-        <div className='w-2/5'>
-          <img src="/party.jpg" alt="" />
+        <div className='w-2/5 relative'>
+          <img className='absolute top-0 w-80 left-1/2 -translate-x-1/2' ref={img2Ref} src="/decor2.png" alt="" />
+          <img className='pt-20' src="/party.jpg" alt="" />
         </div>
         <div>
 
