@@ -38,7 +38,7 @@ const about = () => {
   const img2Ref = useRef(null);
   useEffect(() => {
     const el = img2Ref.current;
-    gsap.fromTo(el,{y:'20%'},{ y:-50,duration:1 , scrollTrigger:{
+    gsap.fromTo(el,{y:'20%'},{ y:-50,duration:2 , scrollTrigger:{
       trigger: el,
       start: 'center bottom',
       end: 'center bottom',
