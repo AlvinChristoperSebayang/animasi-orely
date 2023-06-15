@@ -1,12 +1,12 @@
 import {useState } from 'react'
-import Resources from './pages/about'
+import About from './pages/about'
 
 function App() {
  
 
   return (
     <>
-    <Resources /> 
+    <About /> 
     </>
   )
 }

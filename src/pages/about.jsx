@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Carousel from '../component/carousel';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -203,7 +204,7 @@ const about = () => {
   }, []);
 
 
-  
+
   return (
     <>
     <div className=' container mx-20'>
@@ -222,8 +223,8 @@ const about = () => {
 
 <div className='w-full flex justify-center pt-20 relative'>
       <div className=''>
-        <img className='absolute w-32 left-[15%] bottom-0 Kekiri' src="/kubus1.png" alt="" />
-        <img className='absolute w-32 right-[15%] -bottom-10 Kekanan' src="/kubus3.png" alt="" />
+        <img className='absolute w-32 left-[15%] bottom-0 Kekiri' src="/kubus2.png" alt="" />
+        <img className='absolute w-32 right-[15%] -bottom-10 Kekanan' src="/kubus4.png" alt="" />
       </div>
      <div className=' bg-blue-300 p-10 w-[45%] flex gap-20 justify-center rounded-xl animate-fadeintop'>
        <div className='w-56 animate-moveleft'>
@@ -290,15 +291,17 @@ const about = () => {
           <p className='mt-10' ref={(el) => (paraRefs.current[1] = el)} data-delay="200">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus enim necessitatibus id nisi sit nihil odit veniam error incidunt quidem veritatis corrupti, voluptatum reprehenderit, eius, maiores officiis debitis dolore.</p>
           <p className='mt-10'ref={(el) => (paraRefs.current[2] = el)} data-delay="1000">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia veritatis minus neque dolore suscipit vitae beatae veniam, voluptatem doloribus, iste error quibusdam iusto sit, porro provident. Ab ratione rem id!</p>
         </div>
-        <div className='w-2/5 relative'>
+        {/* <div className='w-2/5 relative'>
           <img className='absolute top-0 w-80 left-1/2 -translate-x-1/2' ref={img2Ref} src="/decor2.png" alt="" />
           <img className='pt-20' src="/party.jpg" alt="" />
-        </div>
+        </div> */}
         <div>
 
         </div>
       </div>
-
+      {/* <div className='h-20'>
+      <Carousel /> 
+      </div> */}
     </div>
    </>
   )
