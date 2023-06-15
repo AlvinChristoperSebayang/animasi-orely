@@ -39,13 +39,59 @@ const about = () => {
   const img2Ref = useRef(null);
   useEffect(() => {
     const el = img2Ref.current;
-    gsap.fromTo(el,{y:'20%'},{ y:-50,duration:2 , scrollTrigger:{
+    gsap.fromTo(el,{scale:0.8, opacity: 0},{ scale:1,duration:0.8,opacity:1, scrollTrigger:{
       trigger: el,
       start: 'center bottom',
       end: 'center bottom',
       toggleActions: 'play none none reverse',
     }})
   }, []);
+
+  const ataskiriRef = useRef(null);
+  useEffect(() => {
+    const el = ataskiriRef.current;
+    gsap.fromTo(el,{x:'0%',y:'0%'},{ x:'-200%',y:'-200%', duration:2, scrollTrigger:{
+      trigger: el,
+      start: 'center bottom',
+      end: 'center bottom',
+      toggleActions: 'play none none reverse',
+    }})
+  }, []);
+
+  const bawahkiriRef = useRef(null);
+  useEffect(() => {
+    const el = bawahkiriRef.current;
+    gsap.fromTo(el,{x:'-50%',y:'100%'},{ x:'-200%',y:'400%', duration:2, scrollTrigger:{
+      trigger: el,
+      start: 'center bottom',
+      end: 'center bottom',
+      toggleActions: 'play none none reverse',
+    }})
+  }, []);
+
+  const ataskananRef = useRef(null);
+  useEffect(() => {
+    const el = ataskananRef.current;
+    gsap.fromTo(el,{x:'%',y:'100%'},{ x:'180%',y:'-80%', duration:2, scrollTrigger:{
+      trigger: el,
+      start: 'center bottom',
+      end: 'center bottom',
+      toggleActions: 'play none none reverse',
+    }})
+  }, []);
+
+  const bawahkananRef = useRef(null);
+  useEffect(() => {
+    const el = bawahkananRef.current;
+    gsap.fromTo(el,{x:'0%',y:'0%'},{ x:'200%',y:'400%', duration:2, scrollTrigger:{
+      trigger: el,
+      start: 'center bottom',
+      end: 'center bottom',
+      toggleActions: 'play none none reverse',
+    }})
+  }, []);
+
+
 
 
   const paragraphRef = useRef(null);
@@ -291,10 +337,19 @@ const about = () => {
           <p className='mt-10' ref={(el) => (paraRefs.current[1] = el)} data-delay="200">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus ducimus enim necessitatibus id nisi sit nihil odit veniam error incidunt quidem veritatis corrupti, voluptatum reprehenderit, eius, maiores officiis debitis dolore.</p>
           <p className='mt-10'ref={(el) => (paraRefs.current[2] = el)} data-delay="1000">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia veritatis minus neque dolore suscipit vitae beatae veniam, voluptatem doloribus, iste error quibusdam iusto sit, porro provident. Ab ratione rem id!</p>
         </div>
-        {/* <div className='w-2/5 relative'>
-          <img className='absolute top-0 w-80 left-1/2 -translate-x-1/2' ref={img2Ref} src="/decor2.png" alt="" />
-          <img className='pt-20' src="/party.jpg" alt="" />
-        </div> */}
+        <div className='w-2/5 relative'>
+          <div className='relative'>
+          <img className='absolute top-0 w-40 left-1/2 -translate-x-1/2 z-20' ref={img2Ref} src="/bintang.png" alt="" />
+          <img className='absolute top-10 w-10 left-[45%] z-10' ref={ataskiriRef} src="/ataskiri.png" alt="" />
+          <img className='absolute top-0 w-10 left-1/2 -translate-x-1/2 z-10'  ref={bawahkiriRef}  src="/bawahkiri.png" alt="" />
+          <img className='absolute top-0 w-10 left-1/2 -translate-x-1/2 z-10' ref={ataskananRef} src="/ataskanan.png" alt="" />
+          <img className='absolute top-0 w-10 left-1/2 -translate-x-1/2 z-10' ref={bawahkananRef} src="/bawahkanan.png" alt="" />
+         
+          </div>
+          <img className='pt-20 w-40 absolute left-0 z-20' src="/laki1.png" alt="" />
+          <img className='pt-20 w-32 absolute left-0 -bottom-20 z-10' src="/kubuscowo.png" alt="" />
+          <img className='pt-20 w-40 absolute right-0' src="/cewe.png" alt="" />
+        </div>
         <div>
 
         </div>
